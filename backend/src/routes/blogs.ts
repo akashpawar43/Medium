@@ -10,7 +10,7 @@ export const blogRouter = new Hono<{
         JWT_SECRET: string
     },
     Variables: {
-        userId: string
+        authorId: string
     }
 }>
 
@@ -28,7 +28,7 @@ blogRouter.use(async (c, next) => {
         const token = header.split(" ")[1];
         const payload = await verify(token, c.env.JWT_SECRET);
         if (payload) {
-            c.set('userId', payload.id)
+            c.set('authorId', payload.id)
             await next();
         } else {
             c.status(401)
@@ -39,7 +39,7 @@ blogRouter.use(async (c, next) => {
     } catch (error) {
         c.status(500);
         return c.json({
-            error: "Internal server error"
+            error: "You are not Logged in"
         })
     }
 });
@@ -50,7 +50,7 @@ blogRouter.post("/", async (c) => {
     }).$extends(withAccelerate());
     try {
         const body = await c.req.json();
-        const authorId = c.get('userId');
+        const authorId = c.get('authorId');
         const blog = await prisma.post.create({
             data: {
                 title: body.title,
@@ -75,7 +75,7 @@ blogRouter.put("/", async (c) => {
     }).$extends(withAccelerate());
     try {
         const body = await c.req.json();
-        const authorId = c.get('userId');
+        const authorId = c.get('authorId');
         const blog = await prisma.post.update({
             where: {
                 id: body.id,
