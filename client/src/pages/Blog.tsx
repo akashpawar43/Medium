@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import FullBlog from "../components/FullBlog";
 import { useBlog } from "../hooks";
 import Appbar from "../components/Appbar";
+import SingleBlogSkeleton from "../components/SingleBlogSkeleton";
 
 
 export default function Blog() {
@@ -11,9 +12,10 @@ export default function Blog() {
     });
 
     if (loading) {
-        return <div>
-            Loading...
-        </div>
+        return <>
+            <Appbar />
+            <SingleBlogSkeleton />
+        </>
     }
     return (
         <>

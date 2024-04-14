@@ -17,7 +17,7 @@ export default function FullBlog({
 }: SingleBlog) {
     return (
         <div className=" flex justify-center">
-            <div className=" grid grid-cols-12 max-w-screen-xl py-16">
+            <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 max-w-screen-xl py-8 lg:py-14 w-[85%] gap-6 md:gap-10">
                 <div className=" col-span-8 flex flex-col gap-4">
                     <div className=" text-5xl font-bold">
                         {title}

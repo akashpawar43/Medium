@@ -1,5 +1,5 @@
 
-export default function BlogSkeleton() {
+export default function BlogsSkeleton() {
     return (
         <div className=" flex gap-2 flex-col mt-1 min-w-[80%] max-w-7xl">
             <div className="flex items-center my-4">
@@ -21,7 +21,6 @@ export default function BlogSkeleton() {
                 <div className="w-32 h-2 bg-gray-200 rounded-full "></div>
             </div>
             <div className=" bg-zinc-200 h-[1px]"></div>
-
         </div>
     )
 }

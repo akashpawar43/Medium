@@ -1,6 +1,6 @@
 import Appbar from "../components/Appbar";
 import BlogCard from "../components/BlogCard";
-import BlogSkeleton from "../components/BlogSkeleton";
+import BlogsSkeleton from "../components/BlogsSkeleton";
 import { useBlogs } from "../hooks";
 
 
@@ -11,11 +11,11 @@ export default function Blogs() {
         return <div className=" flex flex-col justify-center items-center">
             <Appbar />
             <div className=" grid grid-cols-1 w-[85%] md:w-[60%] lg:w-[50%] ">
-                <BlogSkeleton />
-                <BlogSkeleton />
-                <BlogSkeleton />
-                <BlogSkeleton />
-                <BlogSkeleton />
+                <BlogsSkeleton />
+                <BlogsSkeleton />
+                <BlogsSkeleton />
+                <BlogsSkeleton />
+                <BlogsSkeleton />
             </div>
         </div>
     }
