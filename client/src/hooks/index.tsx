@@ -39,6 +39,7 @@ interface SingleBlog {
     title: string,
     content: string,
     authorId: string,
+    published: boolean,
     author?: {
         name: string
     }
@@ -46,7 +47,7 @@ interface SingleBlog {
 
 export const useBlog = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);
-    const [blog, setBlog] = useState<SingleBlog[]>([]);
+    const [blog, setBlog] = useState<SingleBlog>();
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/blog/${id}`, {
@@ -58,7 +59,7 @@ export const useBlog = ({ id }: { id: string }) => {
                 setBlog(response.data.blog);
                 setLoading(false);
             })
-    }, []);
+    }, [id]);
 
     return {
         loading,

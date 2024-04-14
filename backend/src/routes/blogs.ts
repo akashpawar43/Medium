@@ -67,7 +67,7 @@ blogRouter.post("/", async (c) => {
             }
         })
         return c.json({
-            id: blog
+            id: blog.id
         })
     } catch (error) {
         c.status(411);

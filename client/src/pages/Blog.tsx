@@ -18,12 +18,16 @@ export default function Blog() {
     return (
         <>
             <Appbar />
-            <FullBlog key={blog.id} id={blog.id}
-                title={blog.title}
-                content={blog.content}
-                author={blog.author.name || "Anonymous"}
-            // published={}
-            />
+            {blog &&
+                <FullBlog
+                    key={blog.id}
+                    id={blog.id}
+                    title={blog.title}
+                    content={blog.content}
+                    authorName={blog.author ? blog.author.name || "Anonymous" : "Anonymous"}
+                    published={blog.published ? "Published" : "Not Published"}
+                />
+            }
         </>
     )
 }
