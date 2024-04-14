@@ -1,18 +1,18 @@
 import Avatar from "./Avatar"
 
 interface SingleBlog {
-    id: string;
+    id?: string;
     title: string;
     content: string;
-    published: string;
+    published?: string;
     authorName: string
 }
 
 export default function FullBlog({
-    id,
+    // id,
     title,
     content,
-    published,
+    // published,
     authorName
 }: SingleBlog) {
     return (
